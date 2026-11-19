@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moodboard Samuel Silva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Idea: moodboard editorial sobre la paleta del búnker. Texto en una columna lateral fija y pequeña; el trabajo de Samuel ocupa la columna grande. Filas de imágenes con anchos proporcionales para que tengan la misma altura sin recortes. */
+:root{
+  --bg:#0b1117;
+  --panel:#121a23;
+  --line:#22303e;
+  --ink:#e9eff5;
+  --muted:#8fa1b3;
+  --cyan:#3fd8ea;
+  --amber:#ff9d42;
+  --blender:#404040;
+  --display:'Archivo','Arial Black',sans-serif;
+  --body:'Archivo','Segoe UI',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+  --gut:clamp(16px,3.2vw,44px);
+  --gap:clamp(12px,1.4vw,18px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.label{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.wide{font-family:var(--display);font-stretch:125%;font-weight:500;text-transform:uppercase;letter-spacing:-.01em;line-height:.95}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:30;background:rgba(11,17,23,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px var(--gut);border-bottom:1px solid var(--line)}
+.logo{font-family:var(--display);font-stretch:62%;font-weight:300;font-size:26px;letter-spacing:.02em;text-decoration:none;line-height:1}
+.logo b{color:var(--cyan);font-weight:300}
+.menu{display:flex;gap:22px;align-items:center}
+.menu a{text-decoration:none;font-family:var(--display);font-stretch:112%;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);position:relative;padding:4px 0}
+.menu a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--cyan);transition:right .35s ease}
+.menu a:hover,.menu a.on{color:var(--ink)}
+.menu a:hover::after,.menu a.on::after{right:0}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:10px var(--gut);border-bottom:1px solid var(--line)}
+.bar .cur{font-family:var(--display);font-stretch:125%;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+.toggle{display:flex;gap:6px}
+.toggle button{width:28px;height:28px;border:1px solid var(--line);background:transparent;border-radius:4px;cursor:pointer;display:grid;place-items:center;color:var(--muted);transition:.2s}
+.toggle button svg{width:13px;height:13px;fill:currentColor}
+.toggle button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.toggle button:hover{border-color:var(--cyan)}
+
+/* ---------- portada ---------- */
+.hero{padding:clamp(48px,8vw,100px) var(--gut) 30px}
+.hero h1{font-size:clamp(40px,7.6vw,112px);margin:0 0 24px}
+.hero h1 span{display:block;color:transparent;-webkit-text-stroke:1px var(--ink)}
+.hero .intro{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:end;border-top:1px solid var(--line);padding-top:22px}
+.hero .who{font-family:var(--display);font-stretch:112%;font-size:clamp(18px,1.8vw,24px);font-weight:500;line-height:1.15;margin:0 0 8px;text-transform:uppercase}
+.hero .lead{margin:0;color:var(--muted);max-width:52ch;font-size:15.5px}
+.stats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stats li{border-top:1px solid var(--amber);padding-top:10px}
+.stats strong{display:block;font-family:var(--display);font-stretch:125%;font-size:clamp(28px,3vw,40px);font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+.stats span{display:block;margin-top:6px;font-size:12.5px;color:var(--muted);line-height:1.35}
+.chips{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--muted);transition:.25s}
+.chips li:hover{color:var(--bg);background:var(--cyan);border-color:var(--cyan)}
+
+
+/* ---------- secciones ---------- */
+.corte{padding:clamp(90px,12vw,160px) var(--gut) 0}
+.chead{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,3vw,40px);align-items:end;margin-bottom:34px}
+.chead .big{font-family:var(--display);font-stretch:125%;font-weight:300;font-size:clamp(80px,15vw,220px);line-height:.78;color:transparent;-webkit-text-stroke:1px var(--cyan)}
+.chead h2{font-size:clamp(28px,4.6vw,66px);margin:0 0 6px}
+.chead .label{display:block;margin-bottom:12px}
+
+/* texto del corte: pequeño, a dos columnas */
+.intro-c{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:20px 0 0;border-top:1px solid var(--line);margin-bottom:clamp(40px,5vw,64px)}
+.intro-c .label{color:var(--amber)}
+.intro-c .txt{columns:2 300px;column-gap:36px;max-width:820px}
+.intro-c p{margin:0 0 12px;font-size:15.5px;line-height:1.6;color:#cfd9e2;break-inside:avoid}
+
+/* bloque: texto lateral + contenido */
+.block{display:grid;grid-template-columns:minmax(220px,290px) 1fr;gap:clamp(24px,4vw,56px);padding-top:18px;border-top:1px solid var(--line);margin-top:clamp(56px,7vw,96px)}
+.block.first{margin-top:0}
+.side{position:sticky;top:120px;align-self:start}
+.side h3{font-family:var(--display);font-stretch:118%;font-size:clamp(18px,1.8vw,24px);font-weight:500;text-transform:uppercase;margin:0 0 6px;line-height:1.08;text-wrap:balance}
+.side .label{display:block}
+.side .say{margin-top:22px;padding-left:14px;border-left:2px solid var(--amber)}
+.side .say .label{color:var(--amber);margin-bottom:8px}
+.side .say p{margin:0 0 10px;font-size:14.5px;line-height:1.6;color:#cfd9e2}
+.side .say p:last-child{margin-bottom:0}
+.content{min-width:0;display:grid;gap:var(--gap)}
+
+/* filas proporcionales: el ancho de cada columna es su relación de aspecto, así todas tienen la misma altura */
+.prow{display:grid;gap:var(--gap);align-items:start}
+
+/* tarjetas */
+.card{margin:0;perspective:1000px;--rx:0deg;--ry:0deg;min-width:0}
+.card .float{animation:flotar 8s ease-in-out infinite alternate;animation-delay:var(--d,0s)}
+.card .tilt{position:relative;border-radius:5px;overflow:hidden;background:#1a232d;transform:rotateX(var(--rx)) rotateY(var(--ry));transition:transform .7s cubic-bezier(.2,.8,.2,1),box-shadow .5s;cursor:zoom-in}
+.card:hover .tilt{box-shadow:0 18px 36px -20px rgba(0,0,0,.8),0 0 0 1px rgba(63,216,234,.35)}
+.card img,.card video{width:100%;height:auto;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.card:hover img,.card:hover video{transform:scale(1.02)}
+.card figcaption{display:flex;justify-content:space-between;gap:10px;margin-top:9px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.4}
+.card figcaption b{color:var(--ink);font-weight:500;transition:color .3s}
+.card:hover figcaption b{color:var(--cyan)}
+.gray .tilt{background:var(--blender)}
+.dark .tilt{background:#242424}
+.fit .tilt{aspect-ratio:4/3;display:grid;place-items:center}
+.fit img{width:100%;height:100%;object-fit:contain}
+.pill{position:absolute;top:10px;left:10px;z-index:2;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:rgba(11,17,23,.8);color:var(--ink);border:1px solid var(--line)}
+.pill.mio{background:var(--cyan);color:#05222a;border-color:var(--cyan)}
+.pill.ref{color:var(--muted)}
+.pill.eq{background:var(--amber);color:#2a1300;border-color:var(--amber)}
+.play{position:absolute;right:10px;bottom:10px;z-index:2;width:36px;height:36px;border-radius:50%;background:rgba(11,17,23,.75);border:1px solid var(--line);display:grid;place-items:center;transition:.3s}
+.play svg{width:11px;fill:var(--ink);margin-left:2px}
+.card:hover .play{background:var(--cyan)}
+.card:hover .play svg{fill:#05222a}
+@keyframes flotar{from{transform:translateY(0)}to{transform:translateY(-4px)}}
+
+/* mundos: una imagen principal y dos al lado, misma altura total */
+.feat{display:grid;grid-template-columns:2fr 1fr;gap:var(--gap)}
+.feat.rev{grid-template-columns:1fr 2fr}
+.feat .main{grid-row:span 2;display:flex;flex-direction:column}
+.feat.rev .main{grid-column:2;grid-row:1 / span 2}
+.feat .main .float{flex:1;display:flex}
+.feat .main .tilt{flex:1;display:grid;place-items:center}
+.feat .main img{width:100%;height:100%;object-fit:contain}
+.world-name{display:flex;align-items:center;gap:10px;margin:0 0 6px}
+.world-name .dot{width:9px;height:9px;border-radius:50%;flex:none}
+.umbira .dot{background:var(--amber);box-shadow:0 0 12px var(--amber)}
+.aurea .dot{background:#9fe9dc;box-shadow:0 0 12px #9fe9dc}
+.world-name h3{font-family:var(--display);font-stretch:125%;font-size:clamp(24px,2.6vw,36px);font-weight:500;text-transform:uppercase;margin:0;line-height:1}
+.umbira h3{color:#ffd2a6}
+.aurea h3{color:#c9f3ec}
+.side .refbox{margin-top:22px}
+.side .refbox .label{margin-bottom:8px}
+
+/* props */
+.props{display:grid;gap:var(--gap)}
+.props.c5{grid-template-columns:repeat(5,1fr)}
+.props.c4{grid-template-columns:repeat(4,1fr)}
+.sub{display:flex;align-items:baseline;gap:12px;margin:8px 0 2px}
+.sub .k{font-family:var(--display);font-stretch:125%;font-size:clamp(32px,3.6vw,48px);font-weight:300;line-height:.8;color:var(--amber);font-variant-numeric:tabular-nums}
+.sub h4{font-family:var(--display);font-stretch:112%;font-size:clamp(15px,1.4vw,18px);text-transform:uppercase;font-weight:500;margin:0}
+.sub + .note{margin:0;color:var(--muted);font-size:14px}
+.stack-text{display:grid;grid-template-columns:minmax(220px,290px) 1fr;gap:clamp(24px,4vw,56px);margin-bottom:28px}
+.stack-text .say{padding-left:14px;border-left:2px solid var(--amber)}
+.stack-text .say .label{color:var(--amber);display:block;margin-bottom:8px}
+.stack-text .txt{columns:2 280px;column-gap:32px}
+.stack-text p{margin:0 0 10px;font-size:14.5px;line-height:1.6;color:#cfd9e2;break-inside:avoid}
+.full{display:grid;gap:var(--gap);margin-top:clamp(56px,7vw,96px);padding-top:18px;border-top:1px solid var(--line)}
+.full .props + .sub{margin-top:30px}
+
+/* enlaces vizcom */
+.vlink{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;margin-top:8px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-decoration:none;position:relative;overflow:hidden}
+.vlink::before{content:"";position:absolute;inset:0;background:var(--cyan);transform:translateY(101%);transition:transform .5s cubic-bezier(.2,.8,.2,1);z-index:0}
+.vlink>*{position:relative;z-index:1;transition:color .3s}
+.vlink .t{font-family:var(--display);font-stretch:118%;font-size:clamp(15px,1.6vw,20px);text-transform:uppercase;font-weight:500;line-height:1.1}
+.vlink .s{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.vlink .arr{font-family:var(--display);font-size:26px;transition:transform .4s;padding-right:6px}
+.vlink:hover::before{transform:translateY(0)}
+.vlink:hover>*,.vlink:hover .s{color:#05222a}
+.vlink:hover .arr{transform:translateX(4px) rotate(-45deg)}
+
+/* diapositivas y reflexión */
+.aporte p{font-family:var(--display);font-stretch:112%;font-size:clamp(22px,3vw,40px);font-weight:400;line-height:1.2;margin:0;max-width:30ch;text-wrap:balance}
+.aporte p em{font-style:normal;color:var(--cyan)}
+.refl{display:grid;gap:0;border-top:1px solid var(--line)}
+.refl div{display:grid;grid-template-columns:70px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--line);transition:padding .35s,background .35s}
+.refl div:hover{padding-left:14px;background:linear-gradient(90deg,rgba(63,216,234,.07),transparent 60%)}
+.refl .n{font-family:var(--mono);font-size:12px;color:var(--amber);padding-top:8px}
+.refl p{margin:0;font-family:var(--display);font-stretch:108%;font-size:clamp(19px,2.3vw,30px);line-height:1.3;max-width:44ch}
+
+footer{margin-top:clamp(100px,14vw,180px);padding:0 var(--gut) 34px}
+footer .huge{font-size:clamp(40px,10.5vw,160px);margin:0 0 28px;color:transparent;-webkit-text-stroke:1px var(--line);transition:-webkit-text-stroke-color .5s}
+footer:hover .huge{-webkit-text-stroke-color:var(--cyan)}
+footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:16px}
+
+/* ---------- vista lista ---------- */
+body.list .content,body.list .props{max-width:760px}
+body.list .prow,body.list .feat,body.list .feat.rev{grid-template-columns:1fr !important}
+body.list .feat .main,body.list .feat.rev .main{grid-column:auto;grid-row:auto}
+body.list .props.c5,body.list .props.c4{grid-template-columns:repeat(2,1fr)}
+body.list .card .float{animation:none}
+
+/* ---------- visor ---------- */
+#lb{position:fixed;inset:0;z-index:60;background:rgba(6,10,14,.95);display:none;grid-template-rows:auto 1fr auto;padding:18px var(--gut)}
+#lb.on{display:grid;animation:fade .3s ease}
+#lb .lbtop{display:flex;justify-content:space-between;align-items:center}
+#lb .stage{display:grid;place-items:center;min-height:0;padding:14px 0}
+#lb .stage img,#lb .stage video{max-height:100%;max-width:100%;border-radius:6px;animation:pop .4s cubic-bezier(.2,.8,.2,1)}
+#lb .cap{display:flex;justify-content:space-between;align-items:center;gap:14px}
+#lb button{background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:8px 16px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:.25s}
+#lb button:hover{background:var(--cyan);color:#05222a;border-color:var(--cyan)}
+@keyframes fade{from{opacity:0}}
+@keyframes pop{from{transform:scale(.97);opacity:.5}}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .hero .intro{grid-template-columns:1fr}
+  .block,.stack-text{grid-template-columns:1fr}
+  .side{position:static}
+  .props.c5{grid-template-columns:repeat(3,1fr)}
+  .props.c4{grid-template-columns:repeat(3,1fr)}
+  .menu a.opt{display:none}
+}
+@media (max-width:640px){
+  .prow,.feat,.feat.rev{grid-template-columns:1fr !important}
+  .feat .main,.feat.rev .main{grid-column:auto;grid-row:auto}
+  .props.c5,.props.c4{grid-template-columns:repeat(2,1fr)}
+  .intro-c{grid-template-columns:1fr;gap:8px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .menu{gap:14px}
+  .chead{grid-template-columns:1fr}
+  .refl div{grid-template-columns:40px 1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="#inicio">S<b>.</b>S</a>
+    <nav class="menu" aria-label="Secciones">
+      <a href="#corte-1">Corte 1</a>
+      <a href="#corte-2">Corte 2</a>
+      <a href="#corte-3">Corte 3</a>
+      <a class="opt" href="#aportes">Diapositivas</a>
+      <a class="opt" href="#reflexion">Reflexión</a>
+    </nav>
+  </div>
+  <div class="bar">
+    <span class="cur" id="cur">Moodboard</span>
+    <div class="toggle" role="group" aria-label="Vista del tablero">
+      <button type="button" id="vGrid" aria-pressed="true" aria-label="Vista en tablero" title="Tablero"><svg viewBox="0 0 13 13"><rect width="5.5" height="5.5"/><rect x="7.5" width="5.5" height="5.5"/><rect y="7.5" width="5.5" height="5.5"/><rect x="7.5" y="7.5" width="5.5" height="5.5"/></svg></button>
+      <button type="button" id="vList" aria-pressed="false" aria-label="Vista en lista" title="Lista"><svg viewBox="0 0 13 13"><rect width="13" height="5.5"/><rect y="7.5" width="13" height="5.5"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="inicio">
+
+<section class="hero">
+  <p class="label" style="margin:0 0 16px">The Silent Divide · Semestre 4 · Modelado 3D</p>
+  <h1 class="wide">Moodboard<span>Modelado 3D</span></h1>
+  <div class="intro">
+    <div>
+      <p class="who">Samuel Santiago Silva Largo</p>
+      <p class="lead">Una mirada a lo que hice como modelador 3D del equipo durante el semestre: desde el blocking de los dos mundos hasta los renders de la escena.</p>
+    </div>
+    <ul class="stats" aria-label="Resumen del trabajo">
+      <li><strong>2</strong><span>mundos en blocking</span></li>
+      <li><strong>18</strong><span>props de alta calidad</span></li>
+      <li><strong>1</strong><span>personaje animado</span></li>
+      <li><strong>1</strong><span>coleccionable</span></li>
+    </ul>
+  </div>
+  <ul class="chips" aria-label="Herramientas">
+    <li>Blender · Cycles</li><li>Hunyuan 3D</li><li>Vizcom</li><li>Photoshop</li><li>Quad Remesher</li><li>Auto-Rig Pro</li><li>Mixamo</li><li>Claude</li>
+  </ul>
+</section>
+
+
+<!-- ================= CORTE 1 ================= -->
+<section class="corte" id="corte-1" data-name="Corte 01 · Escenarios en blocking">
+  <div class="chead">
+    <span class="big" aria-hidden="true">01</span>
+    <div><span class="label">Primer corte</span><h2 class="wide">Escenarios en blocking</h2></div>
+  </div>
+  <div class="intro-c"><span class="label">En mis palabras</span><div class="txt" style="columns:auto"><p>Para comenzar, en el primer semestre, hice los escenarios de ambos mundos: el de abajo, que es Umbira, y el de arriba, que es Aurea. Ambos los hice en blocking, como para tener una dimensión y ver más o menos cómo se verían.</p></div></div>
+
+  <div class="block first umbira">
+    <aside class="side">
+      <div class="world-name"><span class="dot"></span><h3>Umbira</h3></div>
+      <span class="label">El mundo de abajo</span>
+      <div class="refbox">
+        <span class="label">Concepto de referencia</span>
+        <figure class="card"><div class="float"><div class="tilt"><span class="pill ref">Referencia</span><img src="img/c1-umbira-concepto.webp" alt="Concepto de referencia de Umbira: callejón nocturno con arcos y faroles" data-zoom></div></div></figure>
+      </div>
+    </aside>
+    <div class="content">
+      <div class="feat">
+        <figure class="card gray main"><div class="float"><div class="tilt"><span class="pill mio">Mi blocking</span><img src="img/c1-umbira-blocking-1.webp" alt="Blocking de Umbira, vista 1" data-zoom></div></div><figcaption><b>Blocking · vista 1</b><span>Blender</span></figcaption></figure>
+        <figure class="card gray fit" style="--d:-2s"><div class="float"><div class="tilt"><span class="pill mio">Mi blocking</span><img src="img/c1-umbira-blocking-2.webp" alt="Blocking de Umbira, vista 2" data-zoom></div></div><figcaption><b>Blocking · vista 2</b><span>Blender</span></figcaption></figure>
+        <figure class="card gray fit" style="--d:-4s"><div class="float"><div class="tilt"><span class="pill mio">Mi wireframe</span><img src="img/c1-umbira-wire.webp" alt="Wireframe del blocking de Umbira" data-zoom></div></div><figcaption><b>Wireframe</b><span>Topología</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="block aurea">
+    <aside class="side">
+      <div class="world-name"><span class="dot"></span><h3>Aurea</h3></div>
+      <span class="label">El mundo de arriba</span>
+      <div class="refbox">
+        <span class="label">Concepto de referencia</span>
+        <figure class="card"><div class="float"><div class="tilt"><span class="pill ref">Referencia</span><img src="img/c1-aurea-concepto.webp" alt="Concepto de referencia de Aurea: edificios blancos con cerezos" data-zoom></div></div></figure>
+      </div>
+    </aside>
+    <div class="content">
+      <div class="feat">
+        <figure class="card gray main" style="--d:-1s"><div class="float"><div class="tilt"><span class="pill mio">Mi blocking</span><img src="img/c1-aurea-blocking-2.webp" alt="Blocking de Aurea, vista 2" data-zoom></div></div><figcaption><b>Blocking · vista 2</b><span>Blender</span></figcaption></figure>
+        <figure class="card gray fit" style="--d:-3s"><div class="float"><div class="tilt"><span class="pill mio">Mi blocking</span><img src="img/c1-aurea-blocking-1.webp" alt="Blocking de Aurea, vista 1" data-zoom></div></div><figcaption><b>Blocking · vista 1</b><span>Blender</span></figcaption></figure>
+        <figure class="card gray fit" style="--d:-5s"><div class="float"><div class="tilt"><span class="pill mio">Mi wireframe</span><img src="img/c1-aurea-wire.webp" alt="Wireframe del blocking de Aurea" data-zoom></div></div><figcaption><b>Wireframe</b><span>Topología</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CORTE 2 ================= -->
+<section class="corte" id="corte-2" data-name="Corte 02 · Props y personaje">
+  <div class="chead">
+    <span class="big" aria-hidden="true">02</span>
+    <div><span class="label">Segundo corte</span><h2 class="wide">Coleccionable, props y personaje</h2></div>
+  </div>
+
+  <!-- cráneo -->
+  <div class="block first">
+    <aside class="side">
+      <h3>El cráneo coleccionable</h3>
+      <span class="label">Photoshop · Vizcom</span>
+      <div class="say">
+        <span class="label">En mis palabras</span>
+        <p>Para comenzar el segundo corte, en base a los cráneos de tricerátops que nos envió el profe, hice este para ponerlo como coleccionable en el juego (aquí está el paso a paso).</p>
+        <p>Todo esto lo hice en Photoshop usando colores análogos para generar sombras, además usé el pincel de difuminado y lo hice todo en capas.</p>
+        <p>Después de tener el concepto usé Vizcom (la última foto es la que elegí) y este fue mi resultado final.</p>
+      </div>
+    </aside>
+    <div class="content">
+      <div class="prow" style="grid-template-columns:1.47fr 1.61fr 1.58fr">
+        <figure class="card dark"><div class="float"><div class="tilt"><span class="pill">Paso 1</span><img src="img/c2-craneo-1.webp" alt="Cráneo: silueta y formas base con contorno" data-zoom></div></div><figcaption><b>Silueta y formas base</b></figcaption></figure>
+        <figure class="card dark" style="--d:-2s"><div class="float"><div class="tilt"><span class="pill">Paso 2</span><img src="img/c2-craneo-2.webp" alt="Cráneo: colores planos y sombras" data-zoom></div></div><figcaption><b>Colores planos y sombras</b></figcaption></figure>
+        <figure class="card dark" style="--d:-4s"><div class="float"><div class="tilt"><span class="pill">Paso 3</span><img src="img/c2-craneo-3.webp" alt="Cráneo: volumen y ojo" data-zoom></div></div><figcaption><b>Volumen y ojo</b></figcaption></figure>
+      </div>
+      <figure class="card dark" style="--d:-1s"><div class="float"><div class="tilt"><span class="pill mio">Resultado</span><img src="img/c2-craneo-final.webp" alt="Cráneo final, versión elegida en Vizcom" data-zoom></div></div><figcaption><b>Versión elegida</b><span>Vizcom</span></figcaption></figure>
+      <a class="vlink" href="https://app.vizcom.com/workbench/92d9e89c-8db6-4003-9306-93abe4d9541e#sharing_secret=6df3c666-84f4-447c-9743-8cca23533ece" target="_blank" rel="noopener"><span><span class="t">Mi tablero de Vizcom del cráneo</span><span class="s">Donde hice los cambios · se abre en otra pestaña</span></span><span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+
+  <!-- props: ancho completo para que se vean grandes -->
+  <div class="full">
+    <div class="stack-text">
+      <div><h3 class="side-h" style="font-family:var(--display);font-stretch:118%;font-size:clamp(18px,1.8vw,24px);font-weight:500;text-transform:uppercase;margin:0 0 6px;line-height:1.08">Props de alta calidad</h3><span class="label">18 en total</span></div>
+      <div class="say">
+        <span class="label">En mis palabras</span>
+        <div class="txt">
+          <p>En el segundo corte también hicimos props. A mí me correspondieron los de alta calidad; en total hice 18, de los cuales hice a mano: libreta, tuerca, reja, inhibidor y compuerta. Los demás los hice usando Hunyuan 3D, y el casco lo hice en Vizcom y lo rendericé en Blender en Cycles.</p>
+          <p>A pesar de que esto me tomó bastante tiempo, porque algunos modelados tocaba repetirlos una y otra vez y usar fotos y perspectivas diferentes, que incluso hacía aparte de los conceptos ya hechos por mis compañeros en Gemini, no fue viable esta opción, así que al final usamos muy pocos de estos assets.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub"><span class="k">05</span><h4>Hechos a mano</h4></div>
+    <div class="props c5">
+      <figure class="card gray fit"><div class="float"><div class="tilt"><img src="img/prop-libreta.webp" alt="Libreta de espiral" data-zoom></div></div><figcaption><b>Libreta</b><span>A mano</span></figcaption></figure>
+      <figure class="card gray fit" style="--d:-1s"><div class="float"><div class="tilt"><img src="img/prop-tuerca.webp" alt="Tuerca" data-zoom></div></div><figcaption><b>Tuerca</b><span>A mano</span></figcaption></figure>
+      <figure class="card gray fit" style="--d:-2s"><div class="float"><div class="tilt"><img src="img/prop-reja.webp" alt="Reja con malla" data-zoom></div></div><figcaption><b>Reja</b><span>A mano</span></figcaption></figure>
+      <figure class="card gray fit" style="--d:-3s"><div class="float"><div class="tilt"><img src="img/prop-inhibidor.webp" alt="Inhibidor" data-zoom></div></div><figcaption><b>Inhibidor</b><span>A mano</span></figcaption></figure>
+      <figure class="card gray fit" style="--d:-4s"><div class="float"><div class="tilt"><img src="img/prop-compuerta.webp" alt="Compuerta metálica" data-zoom></div></div><figcaption><b>Compuerta</b><span>A mano</span></figcaption></figure>
+    </div>
+
+    <div class="sub" style="margin-top:30px"><span class="k">12</span><h4>Hechos con Hunyuan 3D</h4></div>
+    <div class="props c4">
+      <figure class="card gray fit"><div class="float"><div class="tilt"><img src="img/prop-barrera.webp" alt="Barrera" data-zoom></div></div><figcaption><b>Barrera</b><span>Hunyuan</span></figcaption></figure>
+      <figure class="card gray fit" style="--d:-1s"><div class="float"><div class="tilt"><img src="img/prop-caja-conexiones.webp" alt="Caja de conexiones" data-zoom></div></div><figcaption><b>Caja de conexiones</b><span>Hunyuan</span></figcaption></figure>
+      <figure class="card gray fit" style="--d:-2s"><div class="float"><div class="tilt"><span class="pill">Unida en Blender</span><img src="img/prop-caja-herramientas.webp" alt="Caja de herramientas" data-zoom></div></div><figcaption><b>Caja de herramientas</b><span>Hunyuan</span></figcaption></figure>
+      <figure class="card gray fit" style="--d:-3s"><div class="float"><div class="tilt"><img src="img/prop-camara.webp" alt="Cámara de seguridad" data-zoom></div></div><figcaption><b>Cámara</b><span>Hunyuan</span></figcaption></figure>
+      <figure class="card gray fit" style="--d:-4s"><div class="float"><div class="tilt"><img src="img/prop-carro-herramientas.webp" alt="Carro de herramientas" data-zoom></div></div><figcaption><b>Carro de herramientas</b><span>Hunyuan</span></figcaption></figure>
+      <figure class="card gray fit" style="--d:-5s"><div class="float"><div class="tilt"><img src="img/prop-columna.webp" alt="Columna" data-zoom></div></div><figcaption><b>Columna</b><span>Hunyuan</span></figcaption></figure>
+      <figure class="card gray fit" style="--d:-2.5s"><div class="float"><div class="tilt"><img src="img/prop-conducto.webp" alt="Conducto" data-zoom></div></div><figcaption><b>Conducto</b><span>Hunyuan</span></figcaption></figure>
+      <figure class="card gray fit" style="--d:-3.5s"><div class="float"><div class="tilt"><img src="img/prop-escaleras.webp" alt="Escaleras" data-zoom></div></div><figcaption><b>Escaleras</b><span>Hunyuan</span></figcaption></figure>
+      <figure class="card gray fit" style="--d:-.5s"><div class="float"><div class="tilt"><img src="img/prop-guantes.webp" alt="Guantes" data-zoom></div></div><figcaption><b>Guantes</b><span>Hunyuan</span></figcaption></figure>
+      <figure class="card gray fit" style="--d:-1.5s"><div class="float"><div class="tilt"><img src="img/prop-linterna.webp" alt="Linterna" data-zoom></div></div><figcaption><b>Linterna</b><span>Hunyuan</span></figcaption></figure>
+      <figure class="card gray fit" style="--d:-4.5s"><div class="float"><div class="tilt"><img src="img/prop-porra.webp" alt="Porra" data-zoom></div></div><figcaption><b>Porra</b><span>Hunyuan</span></figcaption></figure>
+      <figure class="card gray fit" style="--d:-5.5s"><div class="float"><div class="tilt"><img src="img/prop-tuberia.webp" alt="Tubería con válvula" data-zoom></div></div><figcaption><b>Tubería</b><span>Hunyuan</span></figcaption></figure>
+    </div>
+  </div>
+
+  <!-- casco -->
+  <div class="block">
+    <aside class="side">
+      <h3>El casco</h3>
+      <span class="label">Hunyuan · Blender · Vizcom</span>
+      <div class="say">
+        <span class="label">En mis palabras</span>
+        <p>El casco lo corté por la mitad y le apliqué mirror para que tuviera más simetría; además, ya había usado un modelado que me dio Hunyuan.</p>
+      </div>
+    </aside>
+    <div class="content">
+      <div class="prow" style="grid-template-columns:1.16fr 1.78fr">
+        <figure class="card"><div class="float"><div class="tilt"><span class="pill mio">Modelado</span><img src="img/c2-casco-modelado.webp" alt="Modelo 3D del casco en gris" data-zoom></div></div><figcaption><b>Modelado del casco</b><span>Blender</span></figcaption></figure>
+        <figure class="card" style="--d:-2s"><div class="float"><div class="tilt"><span class="pill mio">Render</span><video muted loop playsinline preload="metadata" poster="img/poster-casco-render-blender.jpg" src="vid/casco-render-blender.mp4" data-zoom aria-label="Render del casco en Blender con Cycles"></video><span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></div></div><figcaption><b>Render en Blender con Cycles</b><span>Video</span></figcaption></figure>
+      </div>
+      <div class="prow" style="grid-template-columns:2.24fr 1.75fr">
+        <figure class="card" style="--d:-4s"><div class="float"><div class="tilt"><span class="pill">Proceso</span><img src="img/c2-casco-proceso.webp" alt="Tablero de Vizcom con el proceso del casco" data-zoom></div></div><figcaption><b>Proceso en Vizcom</b><span>Tablero</span></figcaption></figure>
+        <figure class="card" style="--d:-1s"><div class="float"><div class="tilt"><span class="pill">Render</span><video muted loop playsinline preload="metadata" poster="img/poster-casco-render-vizcom.jpg" src="vid/casco-render-vizcom.mp4" data-zoom aria-label="Render del casco en Vizcom"></video><span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></div></div><figcaption><b>Render en Vizcom</b><span>Video</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- nero -->
+  <div class="block">
+    <aside class="side">
+      <h3>Nero, el personaje</h3>
+      <span class="label">Modelado · retopología · animación</span>
+      <div class="say">
+        <span class="label">En mis palabras</span>
+        <p>Nero lo creé todo a mano, le hice la retopología con Quad Remesher y lo animé con Auto-Rig Pro y una animación de Mixamo caminando.</p>
+      </div>
+    </aside>
+    <div class="content">
+      <div class="prow" style="grid-template-columns:.6fr 1.42fr">
+        <figure class="card gray"><div class="float"><div class="tilt"><span class="pill mio">A mano</span><img src="img/c2-nero.webp" alt="Modelo 3D de Nero en Blender" data-zoom></div></div><figcaption><b>Modelado</b><span>Blender</span></figcaption></figure>
+        <figure class="card" style="--d:-3s"><div class="float"><div class="tilt"><span class="pill mio">Retopología</span><img src="img/c2-nero-retopo.webp" alt="Retopología de Nero con su mapa UV" data-zoom></div></div><figcaption><b>Retopología y mapa UV</b><span>Quad Remesher</span></figcaption></figure>
+      </div>
+      <figure class="card" style="--d:-1.5s"><div class="float"><div class="tilt"><span class="pill mio">Animación</span><video muted loop playsinline preload="metadata" poster="img/poster-nero-caminando.jpg" src="vid/nero-caminando.mp4" data-zoom aria-label="Nero caminando"></video><span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></div></div><figcaption><b>Nero caminando</b><span>Auto-Rig Pro · Mixamo</span></figcaption></figure>
+    </div>
+  </div>
+
+  <!-- núcleo -->
+  <div class="block">
+    <aside class="side">
+      <h3>El Núcleo en blocking</h3>
+      <span class="label">El escenario que terminamos usando</span>
+      <div class="say">
+        <span class="label">En mis palabras</span>
+        <p>Además, también hice el blocking con primitivas del Núcleo, que fue el escenario que terminamos usando, aunque más adelante se le hicieron cambios.</p>
+      </div>
+    </aside>
+    <div class="content">
+      <figure class="card gray" style="max-width:680px"><div class="float"><div class="tilt"><span class="pill mio">Mi blocking</span><img src="img/c2-nucleo-blocking.webp" alt="Blocking del Núcleo con primitivas" data-zoom></div></div><figcaption><b>Blocking con primitivas</b><span>Blender</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CORTE 3 ================= -->
+<section class="corte" id="corte-3" data-name="Corte 03 · Animación y renders">
+  <div class="chead">
+    <span class="big" aria-hidden="true">03</span>
+    <div><span class="label">Tercer corte</span><h2 class="wide">Animación y renders</h2></div>
+  </div>
+  <div class="intro-c"><span class="label">En mis palabras</span><div class="txt">
+    <p>Para el tercer corte, me encargué de hacer la animación de cómo funciona el asset de la tuerca, desde la perspectiva de frente, tipo cinemática, y desde la perspectiva que se vería en el juego.</p>
+    <p>Además, hice algunos renders de cómo se vería esta escena. Al final, junto con mi equipo, hicimos algunos cambios de escenario e iluminación para que se viera coherente.</p>
+  </div></div>
+
+  <div class="block first">
+    <aside class="side">
+      <h3>La tuerca en movimiento</h3>
+      <span class="label">2 animaciones</span>
+    </aside>
+    <div class="content">
+      <div class="prow" style="grid-template-columns:1fr 1fr">
+        <figure class="card"><div class="float"><div class="tilt"><span class="pill mio">Cinemática</span><video muted loop playsinline preload="metadata" poster="img/poster-tuerca-frente.jpg" src="vid/tuerca-frente.mp4" data-zoom aria-label="Animación de la tuerca vista de frente"></video><span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></div></div><figcaption><b>De frente, tipo cinemática</b><span>Video</span></figcaption></figure>
+        <figure class="card" style="--d:-3s"><div class="float"><div class="tilt"><span class="pill mio">En el juego</span><video muted loop playsinline preload="metadata" poster="img/poster-tuerca-cenital.jpg" src="vid/tuerca-cenital.mp4" data-zoom aria-label="Animación de la tuerca vista cenital"></video><span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></div></div><figcaption><b>Cenital, como se ve en el juego</b><span>Video</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <aside class="side">
+      <h3>Renders de la escena</h3>
+      <span class="label">De frente → cenital → final</span>
+      <div class="say">
+        <span class="label">El proceso</span>
+        <p>Primero trabajé con la imagen de frente. Cuando obtuve la que quería, hice la cenital, que es como se ve en el juego.</p>
+        <p>La imagen final tiene los cambios de escenario e iluminación que hicimos con el equipo.</p>
+      </div>
+    </aside>
+    <div class="content">
+      <div class="prow" style="grid-template-columns:1fr 1fr 1fr">
+        <figure class="card"><div class="float"><div class="tilt"><span class="pill">01</span><img src="img/c3-img1.webp" alt="Render de frente, versión 1" data-zoom></div></div><figcaption><b>De frente · 1</b></figcaption></figure>
+        <figure class="card" style="--d:-2s"><div class="float"><div class="tilt"><span class="pill">02</span><img src="img/c3-img2.webp" alt="Render de frente, versión 2" data-zoom></div></div><figcaption><b>De frente · 2</b></figcaption></figure>
+        <figure class="card" style="--d:-4s"><div class="float"><div class="tilt"><span class="pill">03</span><img src="img/c3-img3.webp" alt="Render de frente, versión 3" data-zoom></div></div><figcaption><b>De frente · 3</b></figcaption></figure>
+      </div>
+      <div class="prow" style="grid-template-columns:1.24fr 1.79fr">
+        <figure class="card" style="--d:-1s"><div class="float"><div class="tilt"><span class="pill mio">Vista del juego</span><img src="img/c3-img4-cenital.webp" alt="Render cenital, como se ve en el juego" data-zoom></div></div><figcaption><b>Cenital · la vista del juego</b></figcaption></figure>
+        <figure class="card" style="--d:-3s"><div class="float"><div class="tilt"><span class="pill eq">Final con el equipo</span><img src="img/c3-final.webp" alt="Imagen final de la escena con los cambios del equipo" data-zoom></div></div><figcaption><b>Imagen final</b><span>Con el equipo</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <aside class="side">
+      <h3>Mi tablero de Vizcom</h3>
+      <span class="label">El proceso, en orden</span>
+    </aside>
+    <div class="content">
+      <figure class="card"><div class="float"><div class="tilt"><span class="pill">Lienzo general</span><img src="img/c3-lienzo.webp" alt="Lienzo general del tablero de Vizcom" data-zoom></div></div><figcaption><b>Lienzo general</b></figcaption></figure>
+      <div class="prow" style="grid-template-columns:1.23fr 1.81fr 1.37fr">
+        <figure class="card" style="--d:-1s"><div class="float"><div class="tilt"><span class="pill">Parte 1</span><img src="img/c3-parte1.webp" alt="Tablero de Vizcom, parte 1" data-zoom></div></div><figcaption><b>Parte 1</b></figcaption></figure>
+        <figure class="card" style="--d:-3s"><div class="float"><div class="tilt"><span class="pill">Parte 2</span><img src="img/c3-parte2.webp" alt="Tablero de Vizcom, parte 2" data-zoom></div></div><figcaption><b>Parte 2</b></figcaption></figure>
+        <figure class="card" style="--d:-5s"><div class="float"><div class="tilt"><span class="pill">Parte 3</span><img src="img/c3-parte3.webp" alt="Tablero de Vizcom, parte 3" data-zoom></div></div><figcaption><b>Parte 3</b></figcaption></figure>
+      </div>
+      <a class="vlink" href="https://app.vizcom.com/workbench/0bddb080-e06e-4c92-8a55-fd5cb897dac4#sharing_secret=2d50dd84-91d8-4d97-9f2c-8e8ad16795e1" target="_blank" rel="noopener"><span><span class="t">Mi tablero de Vizcom del tercer corte</span><span class="s">Donde trabajé los renders · se abre en otra pestaña</span></span><span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DIAPOSITIVAS ================= -->
+<section class="corte" id="aportes" data-name="Diapositivas">
+  <div class="chead">
+    <span class="big" aria-hidden="true">04</span>
+    <div><span class="label">Otros aportes</span><h2 class="wide">Diapositivas</h2></div>
+  </div>
+  <div class="aporte"><p>Hice las diapositivas de la <em>primera presentación</em> del primer corte, y me encargué del diseño y la estructuración de las diapositivas del <em>pitch final</em>, que hice con ayuda de Claude.</p></div>
+</section>
+
+<!-- ================= REFLEXIÓN ================= -->
+<section class="corte" id="reflexion" data-name="Reflexión">
+  <div class="chead">
+    <span class="big" aria-hidden="true">05</span>
+    <div><span class="label">Cierre del semestre</span><h2 class="wide">Reflexión</h2></div>
+  </div>
+  <div class="refl">
+    <div><span class="n">01</span><p>Este semestre aprendí a usar de mejor manera las herramientas de IA, a saber que todo esto debe estar documentado desde el boceto que se hace a mano, el prompt y lo que viene después de esto, pero que sí o sí tiene que tener intervención humana.</p></div>
+    <div><span class="n">02</span><p>Sobre el mercado que hay de assets, videojuegos y cómo podemos aplicar a este.</p></div>
+    <div><span class="n">03</span><p>El trabajo en equipo, que a pesar de las diferencias siento que se logró un resultado bueno.</p></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p class="huge wide">The Silent Divide</p>
+  <div class="row"><span class="label">Samuel Santiago Silva Largo · Modelador 3D</span><a class="label" href="#inicio">Volver arriba ↑</a></div>
+</footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Visor">
+  <div class="lbtop"><span class="label" id="lbCount"></span><button type="button" id="lbClose">Cerrar</button></div>
+  <div class="stage" id="lbStage"></div>
+  <div class="cap"><button type="button" id="lbPrev">← Anterior</button><span class="label" id="lbCap" style="text-align:center"></span><button type="button" id="lbNext">Siguiente →</button></div>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* inclinación muy leve siguiendo el mouse; los videos se reproducen al pasar encima */
+  document.querySelectorAll('.card').forEach(function(card){
+    var tilt = card.querySelector('.tilt'), vid = card.querySelector('video');
+    card.addEventListener('pointermove', function(e){
+      if(reduce || !fine) return;
+      var r = tilt.getBoundingClientRect(), x = (e.clientX - r.left)/r.width, y = (e.clientY - r.top)/r.height;
+      card.style.setProperty('--ry', ((x-.5)*3).toFixed(2)+'deg');
+      card.style.setProperty('--rx', ((.5-y)*3).toFixed(2)+'deg');
+    });
+    card.addEventListener('pointerenter', function(){ if(vid && fine){ var p = vid.play(); if(p) p.catch(function(){}); } });
+    card.addEventListener('pointerleave', function(){
+      card.style.setProperty('--rx','0deg'); card.style.setProperty('--ry','0deg');
+      if(vid){ vid.pause(); }
+    });
+  });
+
+  /* visor con anterior / siguiente */
+  var items = Array.prototype.slice.call(document.querySelectorAll('[data-zoom]'));
+  var lb = document.getElementById('lb'), stage = document.getElementById('lbStage'), cap = document.getElementById('lbCap'), count = document.getElementById('lbCount'), idx = 0, last = null;
+  function captionOf(el){ var f = el.closest('figure'), b = f && f.querySelector('figcaption b'); return b ? b.textContent : (el.alt || el.getAttribute('aria-label') || ''); }
+  function show(i){
+    idx = (i + items.length) % items.length;
+    var el = items[idx], node;
+    stage.innerHTML = '';
+    if(el.tagName === 'VIDEO'){
+      node = document.createElement('video'); node.src = el.currentSrc || el.src; node.controls = true; node.autoplay = true; node.loop = true; node.playsInline = true; node.setAttribute('aria-label', el.getAttribute('aria-label') || '');
+    } else {
+      node = document.createElement('img'); node.src = el.currentSrc || el.src; node.alt = el.alt;
+    }
+    stage.appendChild(node);
+    cap.textContent = captionOf(el);
+    count.textContent = String(idx+1).padStart(2,'0') + ' / ' + String(items.length).padStart(2,'0');
+  }
+  function open(i){ last = document.activeElement; items.forEach(function(v){ if(v.tagName==='VIDEO') v.pause(); }); show(i); lb.classList.add('on'); document.body.style.overflow='hidden'; document.getElementById('lbClose').focus(); }
+  function close(){ lb.classList.remove('on'); stage.innerHTML=''; document.body.style.overflow=''; if(last) last.focus(); }
+  items.forEach(function(el, i){
+    var t = el.closest('.tilt'); t.setAttribute('tabindex','0'); t.setAttribute('role','button'); t.setAttribute('aria-label','Ampliar: ' + captionOf(el));
+    t.addEventListener('click', function(){ open(i); });
+    t.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(i); } });
+  });
+  document.getElementById('lbClose').addEventListener('click', close);
+  document.getElementById('lbPrev').addEventListener('click', function(){ show(idx-1); });
+  document.getElementById('lbNext').addEventListener('click', function(){ show(idx+1); });
+  stage.addEventListener('click', function(e){ if(e.target === stage) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('on')) return;
+    if(e.key==='Escape') close(); else if(e.key==='ArrowRight') show(idx+1); else if(e.key==='ArrowLeft') show(idx-1);
+  });
+
+
+  /* vista tablero / lista */
+  var g = document.getElementById('vGrid'), l = document.getElementById('vList');
+  function setView(list){ document.body.classList.toggle('list', list); g.setAttribute('aria-pressed', !list); l.setAttribute('aria-pressed', list); try{ localStorage.setItem('ss-view', list ? 'list' : 'grid'); }catch(e){} }
+  g.addEventListener('click', function(){ setView(false); });
+  l.addEventListener('click', function(){ setView(true); });
+  try{ if(localStorage.getItem('ss-view') === 'list') setView(true); }catch(e){}
+
+  /* sección actual */
+  var curLabel = document.getElementById('cur'), links = document.querySelectorAll('.menu a');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(!en.isIntersecting) return;
+        curLabel.textContent = en.target.dataset.name || 'Moodboard';
+        links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + en.target.id); });
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('section.corte').forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>
